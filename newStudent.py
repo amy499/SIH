@@ -9,6 +9,6 @@ class NewStudentRegister(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     university = StringField('University', validators=[DataRequired(), Length(max=50)])
     college = StringField('College', validators=[DataRequired(), Length(max=50)])
-    GrNo = StringField('GrNo', validators=[DataRequired()])
-    MobileNo = StringField('MobileNo', validators=[DataRequired(), Length(min=10, max=10)])
+    grNo = StringField('GrNo', validators=[DataRequired()])
+    mobileNo = StringField('MobileNo', validators=[DataRequired(), Length(min=10, max=10)])
     submit = SubmitField('Submit')
