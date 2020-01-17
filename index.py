@@ -1,7 +1,8 @@
 from flask import Flask,sessions,request,render_template,url_for
+from Data import complaint,login_
 
 app = Flask(__name__)
-
+login_details={"username":["Abhishek","Atharva","Saurabh"],"password":["123456","2345","123"]}
 """
 This is the default route.
 It renders the index page.
@@ -30,9 +31,20 @@ def registerUser():
 """
 Loggin user
 """
-@app.route("/login")
+@app.route("/login",methods=["GET","POST"])
 def login():
-    return "LoggedIn"
+    if request.method =="GET":
+        return render_template("login.html")
+    elif request.method == "POST":
+        data= request.form
+        data= login_(username=data["username"],password=data["password"])
+        x=data.validate(login_details)
+        print(x)
+        if x == ["Logged in successfully"]:
+          return "LoggedIn"
+        else:
+            print(x)
+            return "Error logging in"
 
 """LogOut"""
 @app.route("/logout")
@@ -43,11 +55,19 @@ Complaint Routes
 """
 @app.route("/complaint",methods=["GET","POST"])
 def complaint():
+
     if request.method =="GET":
-        return "Lots of Compaints"
+        return render_template("complaint.html")
     elif request.method == "POST":
-        print(request.form)
-        return "Complaint filed"
+        data= request.form
+        data=complaint(broad_category=data["Broadcategory"],sub_category=data["Subcategory"],Subject=data["Subject"],description=data["Description"])
+        x = data.validate()
+        if x == "validated":
+            return "complaint registered successfully"
+        else:
+            print(x)
+            return "Error in form input"
+
 @app.route("/complaint/new")
 def newComplaint():
     return render_template("/Complaints/register.html",target=url_for('complaint'))
@@ -65,3 +85,5 @@ def stats():
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
+
+
