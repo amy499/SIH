@@ -1,0 +1,26 @@
+.FileComplaint{
+  position: relative;
+  margin-top: 20px;
+  border:2px black solid;
+  height: 75%;
+  left: 0px;
+  width: 50%;
+  color: white;
+  border-radius: 15px;
+  background-color: #322C42;
+  float:left;
+}
+
+
+.FileComplaint button{
+  margin-top: 20px;
+  height: 35px;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: black;
+  color: whitesmoke;
+  display: inline;
+  width:50%;
+  margin-left: 25%;
+}
