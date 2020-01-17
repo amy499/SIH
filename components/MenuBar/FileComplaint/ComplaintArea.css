@@ -1,0 +1,21 @@
+.ComplaintArea{
+  padding:13px;
+  height: 280px;
+
+}
+
+.ComplaintArea label{
+  display: block;
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.ComplaintArea textarea{
+  width:99%;
+  height:12%;
+  font-size: 18px;
+}
+#Complaint{
+  width:99%;
+  height: 68%;
+}
