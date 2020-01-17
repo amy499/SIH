@@ -99,6 +99,20 @@ def registerCollege():
             return "College Registered Successfully!"
         else:
             return "error in form input"
+            
+@app.route("/registerStudent", methods=["GET","POST"])
+def registerStudent():
+    if request.method=="GET":
+        return render_template("newStudentRegistration.html")
+    elif request.method=="POST":
+        data=request.form
+        print(request.form)
+        data=register_student(student_name=data["name"],student_email=data["email"],student_university=data["university"],student_college=data["college"],student_grNo=data["grNo"],student_gender=data["selectGender"],student_mobile=data["mobileNumber"],student_password=data["pwd"],student_cfgpassword=data["confirmpwd"])
+        x=data.validate()
+        if x=="validated":
+            return "College Registered Successfully!"
+        else:
+            return "error in form input"
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
