@@ -1,5 +1,6 @@
 from flask import Flask,sessions,request,render_template,url_for
-from Data import complaint,login_
+from validate import complaint,register_college
+
 
 app = Flask(__name__)
 login_details={"username":["Abhishek","Atharva","Saurabh"],"password":["123456","2345","123"]}
@@ -36,15 +37,17 @@ def login():
     if request.method =="GET":
         return render_template("login.html")
     elif request.method == "POST":
+        """
         data= request.form
         data= login_(username=data["username"],password=data["password"])
         x=data.validate(login_details)
         print(x)
-        if x == ["Logged in successfully"]:
-          return "LoggedIn"
+        if x == ["Logged in successfully"]:"""
+        return "LoggedIn"
+        """
         else:
-            print(x)
             return "Error logging in"
+            """
 
 """LogOut"""
 @app.route("/logout")
@@ -83,7 +86,19 @@ def deleteComplaint():
 def stats():
     return "Show stats here"
 
+@app.route("/register_college", methods=["GET","POST"])
+def registerCollege():
+    if request.method=="GET":
+        return render_template("register.html")
+    elif request.method=="POST":
+        data=request.form
+        print(request.form)
+        data=register_college(college_name=data["collegename"],college_domain=data["collegedomain"],college_id=data["collegeid"])
+        x=data.validate()
+        if x=="validated":
+            return "College Registered Successfully!"
+        else:
+            return "error in form input"
+
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
-
-
