@@ -1,16 +1,43 @@
-<html>
-    <body bgcolor="">
-        <form action="/login" method="POST">
-            <h2>Login</h2>
-            Enter username:<br>
-            <input type="text" id="userName"><br>
-            Enter password:<br>
-            <input type="password" id="userPass">
-            <br>
-            <input type="submit">
-        </form><br>
-        <a href="/forgot">Forgot password</a>
-        <br>
-        <a href="/createAccount">Create account</a>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="newCollegeRegistration.css"></link>
+</head>
+<body bgcolor="#4A455A">
+<div class="container">
+  <h2>User Login</h2>
+  <form action="/login" method="POST" >
+    <div class="form-group">
+        <label for="userName">Username :</label>
+        <div class="row">
+          <div class="formItem">
+              <input type="text" class="form-control" id="userName" placeholder="Username" name="userName" required="required">
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="row">
+          <div class="formItem">
+              <input type="password" class="form-control" id="password" placeholder="Passowrd" name="password" required="required">
+          </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+    </div>
+  </form>
+</div>
+</body>
 </html>
