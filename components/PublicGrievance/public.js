@@ -3,14 +3,15 @@ import style from "./public.css";
 import Modal from "react-modal";
 
 class PublicGrievanceList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      open: false
+      open: false,
+      signup: false
     };
     this.onOpen = this.onOpen.bind(this);
     this.onClose = this.onClose.bind(this);
-    //this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.onClickSignUp = this.onClickSignUp.bind(this);
   }
   onOpen = () => {
     this.setState({ open: true });
@@ -18,6 +19,14 @@ class PublicGrievanceList extends Component {
 
   onClose = () => {
     this.setState({ open: false });
+  };
+
+  onClickSignUp = () => {
+    this.setState(prevState => {
+      return {
+        signup: !prevState.signup
+      };
+    });
   };
 
   render() {
@@ -58,9 +67,30 @@ class PublicGrievanceList extends Component {
             <div className="modalSolution">{this.props.solution}</div>
           </h4>
           <br />
-          <button onClick={this.onClose} className="signUp">
-            Sign Up
-          </button>
+
+          {!this.state.signup ? (
+            <div>
+              {" "}
+              <button
+                onClick={this.onClickSignUp}
+                className="signUp"
+                id="signup"
+              >
+                Sign Up
+              </button>
+            </div>
+          ) : (
+            <div>
+              <p className="alignthis">You signed the public grievance</p>
+              <button
+                onClick={this.onClickSignUp}
+                className="signUp"
+                id="signup"
+              >
+                SignOut
+              </button>
+            </div>
+          )}
         </Modal>
       </div>
     );
