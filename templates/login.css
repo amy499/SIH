@@ -1,0 +1,40 @@
+.container{
+    width:50%;
+    margin: auto;
+}
+label{
+    display: inline;
+}
+.form-group{
+    width:60%;
+    margin:auto;
+}
+
+body{
+    background-color: #4A455A;
+}
+
+#submitBtn{
+    width:10%;
+    margin:auto;
+}
+
+#selectStudent{
+    height: 70%;
+    width:  70%;
+}
+
+#selectCommittee{
+    height: 70%;
+    width:  70%;
+}
+
+.radioStudent{
+    height: 10%;
+    width: 10%;
+}
+
+.radioCommittee{
+    height: 50%;
+    width: 50%;
+}
