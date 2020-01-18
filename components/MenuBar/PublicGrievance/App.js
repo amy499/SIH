@@ -1,7 +1,9 @@
 import React from "react";
 import PublicGrievanceList from "./public";
 import listData from "./listData";
-
+let user = {
+  type: 'student'
+}
 class PublicGrievance extends React.Component {
   constructor() {
     super();
@@ -18,6 +20,7 @@ class PublicGrievance extends React.Component {
         startdate={lists.startdate}
         complaintcontent={lists.complaintcontent}
         solution={lists.solution}
+        user = {user}
       />
     ));
 

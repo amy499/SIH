@@ -74,7 +74,7 @@ class PublicGrievanceList extends Component {
   render() {
     if (this.props.user.type === "student") {
       return (
-        <div className="container">
+        <div className="Publiccontainer">
           <button onClick={this.onOpen} className="button content">
             {this.props.subject}
             <img

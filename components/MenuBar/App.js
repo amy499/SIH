@@ -2,7 +2,7 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
-import PublicComponene
+import PublicGrievance from "./PublicGrievance/App.js"
 let styles={
   backgroundColor:'black',
   color:'whitesmoke',
@@ -66,7 +66,7 @@ class Menu extends React.Component{
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
     </div>
     <div>
-    {this.state.}
+    {this.state.Public && <PublicGrievance />}
     </div>
     </div>
   )}
