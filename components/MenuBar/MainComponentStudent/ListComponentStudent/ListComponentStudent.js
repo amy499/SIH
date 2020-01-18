@@ -10,13 +10,13 @@ import { Card } from "react-bootstrap";
 
 class ListComponentStudent extends React.Component {
   getStyles(component) {
-    if (component.Priority == 1 && component.User == "committeeMember") {
+    if (component.priority == 1 ) {
       return { backgroundColor: "#FFBABA", borderLeft: "5px solid #CD2828" };
-    } else if (component.Priority == 2 && component.User == "committeeMember") {
+    } else if (component.priority == 2 ) {
       return { backgroundColor: "#FFBAA4", borderLeft: "5px solid #CE3606" };
-    } else if (component.Priority == 3 && component.User == "committeeMember") {
+    } else if (component.priority == 3 ) {
       return { backgroundColor: "#D2FFAF", borderLeft: "5px solid #669641" };
-    } else if (component.Priority == 4 && component.User == "committeeMember") {
+    } else if (component.priority == 4 ) {
       return { backgroundColor: "#D2ECFF", borderLeft: "5px solid #8ACAF9" };
     }
   }

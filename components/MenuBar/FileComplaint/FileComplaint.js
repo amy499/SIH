@@ -56,7 +56,7 @@ class FileComplaint extends React.Component{
     return(
       <div>
       <div className="FileComplaint Shadow">
-      <form method="post" action="http://192.168.1.40:5000/complaint"onChange={this.handleChange}>
+      <form method="post" action="http://localhost:5000/complaint"onChange={this.handleChange}>
         <BroadCategory data={broadCategory} />
         <SubCategory data={subCategory} />
         <TypeOfComplaint data={typeOfComplaint} />

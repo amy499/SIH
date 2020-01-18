@@ -4,14 +4,15 @@ class Priority extends Component{
   constructor(props){
     super(props)
     this.styles={
-      marginTop:'20px',
+      marginTop:'60px',
       width: '100%',
       height:'30px',
       fontSize: '20px',
-      marginBottom: '20px',
+      marginBottom: '10px',
       textAlign: 'center',
       border: 'none',
       backgroundColor: 'white',
+
     }
   }
     render(){

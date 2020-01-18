@@ -17,3 +17,7 @@
   box-sizing: border-box;
   font-size: 24px;
 }
+
+.Appbackground{
+  background-color: rgba(0,0,,0.5);
+}

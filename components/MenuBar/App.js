@@ -2,10 +2,9 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
-<<<<<<< HEAD
+
 import PublicGrievance from "./PublicGrievance/App.js"
-=======
->>>>>>> 363f39ce0e710d82bf55936970cfb5cbce1a6dcb
+
 let styles={
   backgroundColor: '#4A455A',
   color:'whitesmoke',
@@ -18,7 +17,8 @@ class Menu extends React.Component{
           FileComplaint : false,
           Closed:false,
           Public:false,
-          Opened: false
+          Opened: false,
+          loading: true,
 
     }
     this.baseState = {
@@ -30,6 +30,7 @@ class Menu extends React.Component{
     }
     this.handleChange = this.handleChange.bind(this)
   }
+
   handleChange(event){
     let id = (event.target.id)
    this.setState(this.baseState)
@@ -37,9 +38,12 @@ class Menu extends React.Component{
       [id] : true
     })
   }
+
   render(){
+
     if(this.props.user.type=='student'){
   return(
+    <div class="Appbackground">
     <div>
     <div onClick={this.handleChange} className="MenuBar">
     <button
@@ -48,19 +52,23 @@ class Menu extends React.Component{
     <button style={styles}
     id="Opened">Opened</button>
     <button style={styles}
-    d="Closed">Closed</button>
+    id="Closed">Closed</button>
     <button style={styles}
      id="FileComplaint" onClick={this.handleClick}>FileComplaint</button>
     <button style={styles}
     id="Public">Public</button>
     </div>
     <div>
-    {this.state.Filed && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
+    {this.state.Filed && <MainComponentStudent type="Filed"/>}
     </div>
-    <div>
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
-    </div>
-    <div>
+
+    {this.state.Opened && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
+
+
+          {this.state.Closed && <MainComponentStudent filed={true} closed={true} opened ={true} />}
+
+
     {this.state.Public && <PublicGrievance />}
     </div>
     </div>

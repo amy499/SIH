@@ -5,15 +5,16 @@ let style={
   width: '100%',
   height: '129px',
   left: '0px',
-  backgroundColor: '#4A455A',
-  color: 'white',
+  backgroundColor: '',
+  color: 'black',
   fontFamily: 'Roboto',
   textAlign:'center',
-  fontSize: '30px',
+  fontSize: '26px',
 }
 
 let styleh2={
-  padding:'42px'
+  padding:'42px',
+  backgroundColor: "#e6ccff"
 }
 
 function InfoBar (props){

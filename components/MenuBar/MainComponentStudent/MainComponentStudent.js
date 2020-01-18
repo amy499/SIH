@@ -2,7 +2,8 @@ import React from "react";
 //Child Component and Parent to ListComponent
 import "./MainComponentStudent.css";
 import ListComponentStudent from "./ListComponentStudent/ListComponentStudent";
-import ListComponentArrayStudent from "./ListComponentStudent/ListComponentArrayStudent";
+import ListComponentArrayStudent from "./ListComponentStudent/ListComponentArrayStudent"
+
 import { ListGroup, Modal, Button, Container } from "react-bootstrap";
 import { Thumbnail } from "react-bootstrap";
 
@@ -17,9 +18,18 @@ class MainComponentStudent extends React.Component {
       show: false, //To show the modal,
       selectedComponent: {},
       someArray: {},
-      status: this.props.type
+      loading: true,
+      data : {},
     };
     this.handleModal = this.handleModal.bind(this);
+  }
+  async componentDidMount(){
+    let url ="http://localhost:5000/complaint/"+this.props.type
+    const response = await fetch(url);
+    const data = await response.json();
+    this.state.data = data;
+    this.setState({loading:false})
+    console.log(this.state.data)
   }
   handleModal = component => {
     console.log(component);
@@ -27,22 +37,12 @@ class MainComponentStudent extends React.Component {
     this.setState({ show: true, selectedComponent: component });
   };
 
-  componentDidMount() {
-
-    //Lifecycle to fetch data from the data base
-    let SomeArray = fetch("http://localhost:5000/complaint")
-      .then(response => response.json())
-      .then(data => {
-        return { someArray: data };
-      });
-      console.log(SomeArray)
-}
-
   render() {
     return (
+
       <Container>
-        <ListGroup variant="flush">
-          {ListComponentArrayStudent.map(component => (
+      {this.state.loading? <div>Loading...</div>: <ListGroup variant="flush">
+          {this.state.data.map(component => (
             <ListGroup.Item
               key={component.id}
               onClick={() => this.handleModal(component)} //Show only gets true here
@@ -52,7 +52,8 @@ class MainComponentStudent extends React.Component {
               ></ListComponentStudent>
             </ListGroup.Item>
           ))}
-        </ListGroup>
+        </ListGroup>}
+
 
         <Modal
           show={this.state.show}
@@ -72,7 +73,7 @@ class MainComponentStudent extends React.Component {
             </Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>{this.state.selectedComponent.Description}</Modal.Body>
+          <Modal.Body>{this.state.selectedComponent.Complaint}</Modal.Body>
           <Modal.Footer>
             <Button className="button">Comment</Button>
             <Button

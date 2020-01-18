@@ -1,8 +1,10 @@
 from flask import Flask,sessions,request,render_template,url_for,redirect
+from flask_cors import CORS
 from dataBase import Complaint,Student
 import json
 
 app = Flask(__name__)
+CORS(app,resoruces={r"/*":{"origins":"htpp:localhost:3000"}})
 app.config['SECRET_KEY']='c8f198ab0ecb824b62b369e27357d343'
 
 """
@@ -83,6 +85,8 @@ def logout():
 """
 Complaint Routes
 """
+
+
 @app.route("/complaint",methods=["GET","POST"])
 def complaint():
 
@@ -96,8 +100,24 @@ def complaint():
         print(data)
         """Inserting into database"""
         complaint = Complaint()
-        complaint.insertOne(data=data)
-        return "Error in form input"
+        complaint.insertComplaint(data=data)
+        return "Information received"
+@app.route("/complaint/Filed",methods=["GET"])
+def complaintFiled():
+
+    if request.method =="GET":
+        complaint = Complaint()
+        data = complaint.findComplaint(College="VIIT",Committee="XYZ")
+        print(data)
+        return data
+    elif request.method == "POST":
+        data= request.form
+        print(data)
+        """Inserting into database"""
+        complaint = Complaint()
+        complaint.insertComplaint(data=data)
+        return "Information received"
+
 
 @app.route("/complaint/new")
 def newComplaint():
