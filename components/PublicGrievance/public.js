@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import style from "./public.css";
 import Modal from "react-modal";
+import listData from "./listData";
 
 class PublicGrievanceList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       open: false,
-      signup: false
+      signup: false,
+      signedby: this.props.signedby,
+      startdate: this.props.startdate
     };
     this.onOpen = this.onOpen.bind(this);
     this.onClose = this.onClose.bind(this);
@@ -27,6 +30,19 @@ class PublicGrievanceList extends Component {
         signup: !prevState.signup
       };
     });
+    if (this.state.signup === false) {
+      this.setState(prevState => {
+        return {
+          signedby: prevState.signedby + 1
+        };
+      });
+    } else {
+      this.setState(prevState => {
+        return {
+          signedby: prevState.signedby - 1
+        };
+      });
+    }
   };
 
   render() {
@@ -38,7 +54,7 @@ class PublicGrievanceList extends Component {
             src="https://cdn.iconscout.com/icon/free/png-256/growth-1438174-1216130.png"
             className="growth"
           />
-          <div className="signedBy">{this.props.signedby}</div>
+          <div className="signedBy">{this.state.signedby}</div>
         </button>
         <Modal isOpen={this.state.open} onRequestClose={this.onClose}>
           <h2 className="modalHeader">
@@ -46,9 +62,9 @@ class PublicGrievanceList extends Component {
               src="https://svgsilh.com/svg_v2/1085695.svg"
               className="icon"
             />
-            {this.props.signedby} people have signed up for it
+            {this.state.signedby} people have signed up for it
           </h2>
-          <h4 className="date">Start date: {this.props.startdate}</h4>
+          <h4 className="date">Start date: {this.state.startdate}</h4>
           <br />
           <h4 className="modalBody">
             <strong>SUB </strong> :- {this.props.subject}
