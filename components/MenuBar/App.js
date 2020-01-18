@@ -6,8 +6,8 @@ import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js
 import PublicGrievance from "./PublicGrievance/App.js"
 
 let styles={
-  backgroundColor: '#4A455A',
-  color:'whitesmoke',
+  backgroundColor: '#a8e3ff',
+  color: '#1a1a1a',
 }
 class Menu extends React.Component{
   constructor(props){

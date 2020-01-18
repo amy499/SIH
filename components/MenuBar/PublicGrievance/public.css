@@ -1,6 +1,6 @@
 .Publiccontainer {
   display: flex;
-  background: #322c42;
+  background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 20px;
   border-color: #322c42;
@@ -9,12 +9,13 @@
 
 .button {
   display: flex;
-  width: 100%;
+  width: 75%;
   height: 60px;
-  background: #625b76;
+  background: #ff9f9f;
   box-sizing: border-box;
   border: 0.5px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: auto;
   border-radius: 10px;
 }
 
@@ -24,7 +25,7 @@
   font-size: 24px;
   font-weight: bold;
   align-items: left;
-  color: #ffffff;
+  color: black;
   padding: 10px;
 }
 
