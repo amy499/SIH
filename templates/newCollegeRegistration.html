@@ -7,17 +7,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="newCollegeRegistration.css"></link>
 </head>
 <body>
-
 <div class="container">
   <h2>New CollegeRegistration</h2>
-  <form action="/collegeRegister" method="POST">
-
+  <form action="/collegeRegister" method="POST" >
     <div class="form-group">
         <label for="collegeName">College Name:</label>
         <div class="row">
-          <div class="col-md-4">
+          <div class="formItem">
               <input type="text" class="form-control" id="collegeName" placeholder="collegeName" name="collegeName" required="required">
           </div>
       </div>
@@ -26,7 +25,7 @@
     <div class="form-group">
         <label for="university">University Name:</label>
         <div class="row">
-          <div class="col-md-4">
+          <div class="formItem">
               <input type="text" class="form-control" id="universityName" placeholder="universityName" name="universityName" required="required">
           </div>
       </div>
@@ -35,7 +34,7 @@
     <div class="form-group">
       <label for="domain">College Domain:</label>
       <div class="row">
-        <div class="col-md-4">
+        <div class="formItem">
         <input type="email" class="form-control" id="domain" placeholder="domain" name="domain" value="@" required="required">
         </div>
       </div>
@@ -44,7 +43,7 @@
     <div class="form-group">
         <label for="officialEmail">Your Official Email of specified college:</label>
         <div class="row">
-          <div class="col-md-4">
+          <div class="formItem">
               <input type="email" class="form-control" id="officialEmail" placeholder="officialEmail" name="officialEmail" required="required">
           </div>
       </div>
@@ -53,7 +52,7 @@
     <div class="form-group">
       <label for="password">Password:</label>
       <div class="row">
-        <div class="col-md-4">
+        <div class="formItem">
       <input type="password" class="form-control" id="pwd" placeholder="pwd" name="pwd" required="required">
       </div>
     </div>
@@ -62,7 +61,7 @@
     <div class="form-group">
       <label for="confirmPassword">Confirm Password:</label>
       <div class="row">
-        <div class="col-md-4">
+        <div class="formItem">
             <input type="password" class="form-control" id="confirmPwd" placeholder="confirmPwd" name="confirmPwd" required="required">
         </div>
     </div>
@@ -71,11 +70,11 @@
 
     <div class="input-group mb-3">
     <div class="input-group-prepend">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         <button type="submit" class="btn btn-success">Submit</button>
     </div>
     </div>
   </form>
 </div>
-
 </body>
 </html>
