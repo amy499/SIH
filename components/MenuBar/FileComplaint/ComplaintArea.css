@@ -12,10 +12,11 @@
 
 .ComplaintArea textarea{
   width:99%;
-  height:12%;
+  height:50px;
   font-size: 18px;
 }
 #Complaint{
   width:99%;
   height: 68%;
+  height:120px;
 }
