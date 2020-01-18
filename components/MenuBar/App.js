@@ -2,12 +2,14 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
+<<<<<<< HEAD
 import PublicGrievance from "./PublicGrievance/App.js"
+=======
+>>>>>>> 363f39ce0e710d82bf55936970cfb5cbce1a6dcb
 let styles={
-  backgroundColor:'black',
+  backgroundColor: '#4A455A',
   color:'whitesmoke',
 }
-
 class Menu extends React.Component{
   constructor(props){
     super(props)
@@ -46,21 +48,14 @@ class Menu extends React.Component{
     <button style={styles}
     id="Opened">Opened</button>
     <button style={styles}
-    id="Closed">Closed</button>
+    d="Closed">Closed</button>
     <button style={styles}
      id="FileComplaint" onClick={this.handleClick}>FileComplaint</button>
     <button style={styles}
     id="Public">Public</button>
     </div>
     <div>
-    {this.state.Filed && <MainComponentStudent type="Filed" />}
-    </div>
-
-    <div>
-      {this.state.Opened && <MainComponentStudent type="Opened" />}
-    </div>
-    <div>
-    {this.state.Closed && <MainComponentStudent type="Closed"/>}
+    {this.state.Filed && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
     </div>
     <div>
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
