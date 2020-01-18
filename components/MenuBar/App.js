@@ -63,7 +63,7 @@ class Menu extends React.Component{
     </div>
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
 
-    {this.state.Opened && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
+    {this.state.Opened && <MainComponentStudent type="Opened"/>}
 
 
           {this.state.Closed && <MainComponentStudent filed={true} closed={true} opened ={true} />}

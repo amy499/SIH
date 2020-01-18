@@ -1,3 +1,4 @@
+#validation classes
 class complaint():
     def __init__(self,broad_category=None,sub_category=None,Subject=None,description=None,Priority=None):
         self.broad_category=broad_category

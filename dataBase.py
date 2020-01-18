@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import datetime
 from bson.json_util import loads,dumps
+from bson.objectid import ObjectId
 client = MongoClient("mongodb://localhost:27017/")
 dataBase = client.smartIndiaHackathon
 
@@ -18,16 +19,23 @@ class Complaint:
         "Subject":data['Subject'],
         "Complaint":data['Complaint'],
         "priority":data['priority'],
-        "datetime": datetime.datetime.utcnow()
+        "datetime": datetime.datetime.utcnow(),
+        'status': 'Filed'
         })
     def updateComplaint(self,data):
         pass
-    def findComplaint(self,College,Committee):
-        cur = self.complaints.find({'College':'VIIT'}).sort("priority")
+    def findComplaint(self,College,Committee,status):
+        cur = self.complaints.find({'College':'VIIT','status':status}).sort("priority")
         jsonString = dumps(cur)
         return jsonString
     def deleteComplaint(self,objectId):
         pass
+    def updateComplaint(self,objectId):
+        data = self.complaints.update({'_id':ObjectId(objectId)},{'$set':{
+        'status':'Opened'
+        }})
+        print(data)
+        return "Success"
 
 class Student:
     def __init__(self):

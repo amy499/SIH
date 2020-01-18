@@ -101,30 +101,32 @@ def complaint():
         """Inserting into database"""
         complaint = Complaint()
         complaint.insertComplaint(data=data)
-        return "Information received"
+        return redirect("http://localhost:3000")
 @app.route("/complaint/Filed",methods=["GET"])
 def complaintFiled():
 
     if request.method =="GET":
         complaint = Complaint()
-        data = complaint.findComplaint(College="VIIT",Committee="XYZ")
+        data = complaint.findComplaint(College="VIIT",Committee="XYZ",status="Filed")
         print(data)
         return data
-    elif request.method == "POST":
-        data= request.form
-        print(data)
-        """Inserting into database"""
+@app.route("/complaint/Opened",methods=["GET"])
+def complaintOpened():
+
+    if request.method =="GET":
         complaint = Complaint()
-        complaint.insertComplaint(data=data)
-        return "Information received"
-
-
+        data = complaint.findComplaint(College="VIIT",Committee="XYZ",status="Opened")
+        print(data)
+        return data
 @app.route("/complaint/new")
 def newComplaint():
     return render_template("/Complaints/register.html",target=url_for('complaint'))
-@app.route("/complaint/edit")
+@app.route("/complaint/edit",methods=["POST"])
 def editComplaint():
-    return "Edit your complaints here"
+        data = (request.get_json())
+        complaint =Complaint()
+        complaint.updateComplaint(objectId=data['_id']['$oid'])
+        return redirect("http://localhost:3000")
 @app.route("/complaint",methods=["DELETE"])
 def deleteComplaint():
     return "Delete your Complaints here"

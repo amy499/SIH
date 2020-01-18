@@ -40,7 +40,7 @@ class commitee_member():
         plt.ylabel("Complaints unopened")
         plt.title("Cases unopened according to prioity")
         plt.show()
-
+#Stats for committee incharges
 class commitee_incharge():
     def complaint_solved_bar(self,data,names):
         plt.bar(names, data, width=0.5, align="center", alpha=1, color='g')

@@ -10,7 +10,7 @@ import { Thumbnail } from "react-bootstrap";
 const styles = {
   fontSize: 24
 };
-
+let user = 'student';
 class MainComponentStudent extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,7 @@ class MainComponentStudent extends React.Component {
       someArray: {},
       loading: true,
       data : {},
+      status:''
     };
     this.handleModal = this.handleModal.bind(this);
   }
@@ -32,9 +33,16 @@ class MainComponentStudent extends React.Component {
     console.log(this.state.data)
   }
   handleModal = component => {
-    console.log(component);
+    this.setState({ show: true, selectedComponent: component,status:'Opened' });
+    let url ="http://localhost:5000/complaint/edit";
+    if (component.status == 'Filed' && user!='student'){  const response = fetch(url,{
+        method:'POST',
+        mode:'cors',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(component)
+      })
+    }
 
-    this.setState({ show: true, selectedComponent: component });
   };
 
   render() {
