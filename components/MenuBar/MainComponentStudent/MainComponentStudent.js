@@ -17,9 +17,7 @@ class MainComponentStudent extends React.Component {
       show: false, //To show the modal,
       selectedComponent: {},
       someArray: {},
-      filed: this.props.filed,
-      opened: this.props.opened,
-      closed: this.props.closed
+      status: this.props.type
     };
     this.handleModal = this.handleModal.bind(this);
   }
@@ -30,15 +28,15 @@ class MainComponentStudent extends React.Component {
   };
 
   componentDidMount() {
-    let someArray;
+
     //Lifecycle to fetch data from the data base
-    fetch("http://172.16.27.65:5000/complaint")
+    let SomeArray = fetch("http://localhost:5000/complaint")
       .then(response => response.json())
       .then(data => {
         return { someArray: data };
       });
-    console.log(someArray);
-  }
+      console.log(SomeArray)
+}
 
   render() {
     return (
@@ -50,9 +48,6 @@ class MainComponentStudent extends React.Component {
               onClick={() => this.handleModal(component)} //Show only gets true here
             >
               <ListComponentStudent
-                filed={this.state.filed}
-                opened={this.state.opened}
-                closed={this.state.closed}
                 component={component}
               ></ListComponentStudent>
             </ListGroup.Item>

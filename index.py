@@ -2,9 +2,6 @@ from flask import Flask,sessions,request,render_template,url_for,redirect
 from dataBase import Complaint,Student
 import json
 
-
-
-
 app = Flask(__name__)
 app.config['SECRET_KEY']='c8f198ab0ecb824b62b369e27357d343'
 

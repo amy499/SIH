@@ -2,6 +2,7 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
+import PublicComponene
 let styles={
   backgroundColor:'black',
   color:'whitesmoke',
@@ -45,17 +46,27 @@ class Menu extends React.Component{
     <button style={styles}
     id="Opened">Opened</button>
     <button style={styles}
-    d="Closed">Closed</button>
+    id="Closed">Closed</button>
     <button style={styles}
      id="FileComplaint" onClick={this.handleClick}>FileComplaint</button>
     <button style={styles}
     id="Public">Public</button>
     </div>
     <div>
-    {this.state.Filed && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
+    {this.state.Filed && <MainComponentStudent type="Filed" />}
+    </div>
+
+    <div>
+      {this.state.Opened && <MainComponentStudent type="Opened" />}
+    </div>
+    <div>
+    {this.state.Closed && <MainComponentStudent type="Closed"/>}
     </div>
     <div>
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
+    </div>
+    <div>
+    {this.state.}
     </div>
     </div>
   )}
