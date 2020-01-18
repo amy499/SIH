@@ -1,6 +1,5 @@
-
-from flask import Flask,sessions,request,render_template,url_for
-from dataBase import Complaint
+from flask import Flask,sessions,request,render_template,url_for,redirect
+from dataBase import Complaint,Student
 import json
 
 
@@ -29,14 +28,20 @@ Route for registering a new user
 """
 @app.route("/user/new")
 def getRegistrationForm():
-    return "Registration Form"
+    return render_template("newStudentRegistration.html")
 @app.route("/user",methods=["POST"])
 def registerUser():
-    if request.method=="POST":
-        data=request.form
-
-
-    return "Registered"
+    user=request.form
+    print(user)
+    if len(user['mobileNo'])==10:
+        if  user["pwd"]==user["confirmpwd"]:
+            student=Student()
+            student.insertStudent(user)
+            return "Registered"
+        else:
+            return redirect(url_for("getRegistrationForm"))
+    else:
+        return redirect(url_for("getRegistrationForm"))
 #Contains information about reference page
 
 
@@ -60,12 +65,13 @@ Loggin user
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-   if request.method == "GET":
+   """if request.method == "GET":
        return render_template("login.html")
    elif request.method == "POST":
        user=request.form
        user=Login(username=user["userName"],password=user["password"])
-       return user.validate()
+       return user.validate()"""
+   return "login"
 
 @app.route("/committee/new",methods=["GET"])
 def newCommittee():
@@ -110,32 +116,6 @@ def deleteComplaint():
 @app.route("/stats")
 def stats():
     return "Show stats here"
-"""
-if __name__ == "__main__":
-    app.run(port=5000,debug=True)
-    """user=
-    name=""
-    data=[]
-    names=[]
-    if user == "committee member":
-        member=commitee_member(name)
-        member.unopened_complaint_bar(data=data)
-        member.pie_chart_solved(name=names,data=data)
-        member.complaint_remaining_bar(data=data)
-        member.complaint_solved_bar(data=data)
-    elif user=="committee incharge":
-        from_=0
-        to=1
-        incharge=commitee_incharge(name)
-        incharge.complaint_solved_bar(data=data,names=names)
-        incharge.complaint_remaining_bar(data=data,names=names)
-        incharge.unopened_complaint_bar(data=data,names=names)
-        incharge.complaints_filed_solved_by_year(from_=from_,to=to,data_filed=[],data_solved=[])
-        incharge.complaints_filed_solved_by_month(from_=from_,to=to,data_filed=[],data_solved=[])
-        incharge.complaint_refiled_bar(data_refiled=data,names=names)
-        incharge.complaints_assigned_priority_wise(names=names,data=data)   #2d numpy array should be passed"""
-
-
 @app.route("/registercollege", methods=["GET","POST"])
 def registerCollege():
    if request.method=="GET":
