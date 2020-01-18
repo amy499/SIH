@@ -2,13 +2,12 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
-<<<<<<< HEAD
+
 import PublicGrievance from "./PublicGrievance/App.js"
-=======
->>>>>>> 363f39ce0e710d82bf55936970cfb5cbce1a6dcb
+
 let styles={
-  backgroundColor: '#4A455A',
-  color:'whitesmoke',
+  backgroundColor: '#a8e3ff',
+  color: '#1a1a1a',
 }
 class Menu extends React.Component{
   constructor(props){
