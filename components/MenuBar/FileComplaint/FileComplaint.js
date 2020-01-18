@@ -55,7 +55,7 @@ class FileComplaint extends React.Component{
   render(){
     return(
       <div>
-      <div className="FileComplaint">
+      <div className="FileComplaint Shadow">
       <form method="post" action="http://192.168.1.40:5000/complaint"onChange={this.handleChange}>
         <BroadCategory data={broadCategory} />
         <SubCategory data={subCategory} />
@@ -65,7 +65,7 @@ class FileComplaint extends React.Component{
         <button  type="Submit">File</button>
       </form>
       </div>
-      <div className="FileComplaint">
+      <div className="FileComplaint2 Shadow">
       <table style={{width:'100%'}}>
         <tr>
           <th>Committee Name</th>
