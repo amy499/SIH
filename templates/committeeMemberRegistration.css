@@ -2,3 +2,9 @@
     background-color:#e6e6e6;
     font-weight: 600;
 }
+
+#mobileNo::-webkit-inner-spin-button, 
+#mobileNo::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
