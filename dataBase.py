@@ -34,17 +34,17 @@ class Student:
         self.collection = dataBase.student
     def insertStudent(self,data):
         self.collection.insertOne({
-        'name':data['name'],
-        'college':data['college'],
-        'university':data['university'],
-        'college':data['college'],
-        'email':data['email'],
-        'password': data['password'],
-        'department': data['department'],
+        'name':data['studentName'],
+        'college':data['collegeName'],
+        'university':data['universityName'],
+        'email':data['studentEmail'],
+        'password': data['pwd'],
+        'department': data['Department'],
+		'GR no':data['grNo']
         })
 
     def findStudent(self,studentId="Rahul",studentEmail="rahul.17u652@viit.ac.in"):
-        result = self.collection.find({'emailId':studentEmail})
+        result = self.collection.find({'email':studentEmail})
         for data in  result:
             print(data)
         return result
