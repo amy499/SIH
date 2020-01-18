@@ -24,7 +24,7 @@ class ListComponentStudent extends React.Component {
   render() {
     return (
       <div>
-        {this.props.filed && this.props.opened && this.props.closed == true ? (
+        {(
           <Card
             className="ml-lg "
             className="card"
@@ -43,8 +43,6 @@ class ListComponentStudent extends React.Component {
               </Card.Link>
             </Card.Body>
           </Card>
-        ) : (
-          <h1>Sorry, cannot open</h1>
         )}
       </div>
     );

@@ -1,6 +1,7 @@
 import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
+import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
 let styles={
   backgroundColor:'black',
   color:'whitesmoke',
@@ -49,6 +50,9 @@ class Menu extends React.Component{
      id="FileComplaint" onClick={this.handleClick}>FileComplaint</button>
     <button style={styles}
     id="Public">Public</button>
+    </div>
+    <div>
+    {this.state.Filed && <MainComponentStudent filed={this.state.Filed} closed={this.state.Closed} opened = {this.state.Opened}/>}
     </div>
     <div>
     {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}

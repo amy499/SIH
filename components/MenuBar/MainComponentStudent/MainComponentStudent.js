@@ -11,16 +11,15 @@ const styles = {
 };
 
 class MainComponentStudent extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       show: false, //To show the modal,
-
       selectedComponent: {},
       someArray: {},
-      filed: true,
-      opened: true,
-      closed: true
+      filed: this.props.filed,
+      opened: this.props.opened,
+      closed: this.props.closed
     };
     this.handleModal = this.handleModal.bind(this);
   }
