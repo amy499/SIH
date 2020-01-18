@@ -1,13 +1,10 @@
-from flask import Flask,sessions,request,render_template,url_for
-from validate import complaint,register_college
-
-
+from flask import Flask,session,request,render_template,url_for,redirect,flash
+from Data import complaint,NewUser
+#from stat_plots import commitee_incharge,commitee_member
+from validate import Login
 app = Flask(__name__)
-login_details={"username":["Abhishek","Atharva","Saurabh"],"password":["123456","2345","123"]}
-"""
-This is the default route.
-It renders the index page.
-"""
+app.config['SECRET_KEY']='c8f198ab0ecb824b62b369e27357d343'
+
 @app.route("/")
 def index():
     return "Hello World"
@@ -27,31 +24,50 @@ def getRegistrationForm():
     return "Registration Form"
 @app.route("/user",methods=["POST"])
 def registerUser():
+    if request.method=="POST":
+        data=request.form
+
+
     return "Registered"
+#Contains information about reference page
+
+
+
+@app.route("/referencepage")
+def getReferencePage():
+    return "Reference Page"
+#Contains information about FAQs
+
+@app.route("/FAQS")
+def getFAQs():
+    return "FAQs"
+
+@app.route("/about")
+def about():
+    return "about"
 
 """
 Loggin user
 """
+
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if request.method =="GET":
-        return render_template("login.html")
-    elif request.method == "POST":
-        """
-        data= request.form
-        data= login_(username=data["username"],password=data["password"])
-        x=data.validate(login_details)
-        print(x)
-        if x == ["Logged in successfully"]:"""
-        return "LoggedIn"
-        """
-        else:
-            return "Error logging in"
-            """
+   if request.method == "GET":
+       return render_template("login.html")
+   elif request.method == "POST":
+       user=request.form
+       user=Login(username=user["userName"],password=user["password"])
+       return user.validate()
+
+@app.route("/committee/new",methods=["GET"])
+def newCommittee():
+    return "select add department or sub category"
+
 
 """LogOut"""
 @app.route("/logout")
 def logout():
+
     return "logged out"
 """
 Complaint Routes
@@ -84,35 +100,45 @@ def deleteComplaint():
 """Statistics Route"""
 @app.route("/stats")
 def stats():
-    return "Show stats here"
+    """user=""
+    name=""
+    data=[]
+    names=[]
+    if user == "committee member":
+        member=commitee_member(name)
+        member.unopened_complaint_bar(data=data)
+        member.pie_chart_solved(name=names,data=data)
+        member.complaint_remaining_bar(data=data)
+        member.complaint_solved_bar(data=data)
+    elif user=="committee incharge":
+        from_=0
+        to=1
+        incharge=commitee_incharge(name)
+        incharge.complaint_solved_bar(data=data,names=names)
+        incharge.complaint_remaining_bar(data=data,names=names)
+        incharge.unopened_complaint_bar(data=data,names=names)
+        incharge.complaints_filed_solved_by_year(from_=from_,to=to,data_filed=[],data_solved=[])
+        incharge.complaints_filed_solved_by_month(from_=from_,to=to,data_filed=[],data_solved=[])
+        incharge.complaint_refiled_bar(data_refiled=data,names=names)
+        incharge.complaints_assigned_priority_wise(names=names,data=data)   #2d numpy array should be passed"""
 
-@app.route("/register_college", methods=["GET","POST"])
+
+@app.route("/registercollege", methods=["GET","POST"])
 def registerCollege():
-    if request.method=="GET":
-        return render_template("register.html")
-    elif request.method=="POST":
-        data=request.form
-        print(request.form)
-        data=register_college(college_name=data["collegename"],college_domain=data["collegedomain"],college_id=data["collegeid"])
-        x=data.validate()
-        if x=="validated":
-            return "College Registered Successfully!"
-        else:
-            return "error in form input"
-            
-@app.route("/registerStudent", methods=["GET","POST"])
-def registerStudent():
-    if request.method=="GET":
-        return render_template("newStudentRegistration.html")
-    elif request.method=="POST":
-        data=request.form
-        print(request.form)
-        data=register_student(student_name=data["name"],student_email=data["email"],student_university=data["university"],student_college=data["college"],student_grNo=data["grNo"],student_gender=data["selectGender"],student_mobile=data["mobileNumber"],student_password=data["pwd"],student_cfgpassword=data["confirmpwd"])
-        x=data.validate()
-        if x=="validated":
-            return "College Registered Successfully!"
-        else:
-            return "error in form input"
+   if request.method=="GET":
+       return render_template("newCollegeRegistration.html")
+   elif request.method=="POST":
+       data=request.form
+       print(data)
+       if data["pwd"]==data["confirmpwd"]:
+         return "college registered successfully"
+       else:
+           return redirect(url_for("registerCollege"))
+
+
+
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
+
+
