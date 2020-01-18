@@ -1,9 +1,8 @@
 
 from flask import Flask,sessions,request,render_template,url_for
-from Data import complaint,login_
 from dataBase import Complaint
 import json
-from validate import Login
+
 
 
 
@@ -33,28 +32,50 @@ def getRegistrationForm():
     return "Registration Form"
 @app.route("/user",methods=["POST"])
 def registerUser():
+    if request.method=="POST":
+        data=request.form
+
+
     return "Registered"
+#Contains information about reference page
+
+
+
+@app.route("/referencepage")
+def getReferencePage():
+    return "Reference Page"
+#Contains information about FAQs
+
+@app.route("/FAQS")
+def getFAQs():
+    return "FAQs"
+
+@app.route("/about")
+def about():
+    return "about"
 
 """
 Loggin user
 """
+
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if request.method =="GET":
-        return render_template("login.html")
-    elif request.method == "POST":
-        data= request.form
-        data= login_(username=data["username"],password=data["password"])
-        x=data.validate(login_details)
-        print(x)
-        if x == ["Logged in successfully"]:
-          return "LoggedIn"
-        else:
-            print(x)
-            return "Error logging in"
+   if request.method == "GET":
+       return render_template("login.html")
+   elif request.method == "POST":
+       user=request.form
+       user=Login(username=user["userName"],password=user["password"])
+       return user.validate()
+
+@app.route("/committee/new",methods=["GET"])
+def newCommittee():
+    return "select add department or sub category"
+
+
 """LogOut"""
 @app.route("/logout")
 def logout():
+
     return "logged out"
 """
 Complaint Routes
@@ -128,7 +149,7 @@ def registerCollege():
            return redirect(url_for("registerCollege"))
 
 
-"""
+
 
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
