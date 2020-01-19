@@ -29,3 +29,8 @@
 .nav-link {
   color: white;
 }
+
+.nav-link:hover {
+  background-color: #004080;
+  color: whitesmoke;
+}
