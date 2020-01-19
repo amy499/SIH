@@ -74,7 +74,33 @@ class Menu extends React.Component{
     </div>
   )}
   else{
-    return <div> Working on Committee</div>
+    return <div><div class="Appbackground">
+    <div>
+    <div onClick={this.handleChange} className="MenuBar">
+    <button
+    style={styles}
+    id="Filed">Filed</button>
+    <button style={styles}
+    id="Opened">Opened</button>
+    <button style={styles}
+    id="Closed">Closed</button>
+    <button style={styles}
+    id="Public">Public</button>
+    </div>
+    <div>
+    {this.state.Filed && <MainComponentStudent type="Filed"/>}
+    </div>
+    {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
+
+    {this.state.Opened && <MainComponentStudent type="Opened"/>}
+
+
+          {this.state.Closed && <MainComponentStudent user={this.props.user.type} />}
+
+
+    {this.state.Public && <PublicGrievance />}
+    </div>
+    </div></div>
   }
 }
 }

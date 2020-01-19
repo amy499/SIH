@@ -10,7 +10,7 @@ import { Thumbnail } from "react-bootstrap";
 const styles = {
   fontSize: 24
 };
-let user = 'student';
+
 class MainComponentStudent extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class MainComponentStudent extends React.Component {
   handleModal = component => {
     this.setState({ show: true, selectedComponent: component,status:'Opened' });
     let url ="http://localhost:5000/complaint/edit";
-    if (component.status == 'Filed' && user!='student'){  const response = fetch(url,{
+    if (component.status == 'Filed' && this.props.user!='student'){  const response = fetch(url,{
         method:'POST',
         mode:'cors',
         headers:{'Content-Type':'application/json'},

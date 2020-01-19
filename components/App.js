@@ -6,7 +6,7 @@ import Menu from "./MenuBar/App.js"
 import Footer from "./Footer/App.js"
 
 let user = {
-  type: 'student'
+  type: 'committee'
 }
 class App extends React.Component{
   constructor(props){
