@@ -1,3 +1,31 @@
-.navbar {
-  align-items: flex-end;
+/* .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #064273;
+  color: "white";
+  height: 60px;
+}
+
+.navbartitle {
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  font-family: "Roboto";
+  font-size: 26px;
+  font-weight: bold;
+} */
+
+.color-nav {
+  background-color: #00539cff;
+}
+
+.title {
+  font-family: "Roboto";
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: white;
 }
