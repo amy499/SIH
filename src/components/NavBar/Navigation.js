@@ -2,14 +2,22 @@ import React from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Navigation.css"
+import style from "./Navigation.css";
 class Navigation extends React.Component {
   render() {
     return (
-      <div className="NavBarModified">
-      <Navbar fixed="sticky" bg="dark" expand="xxl" variant="dark">
-        <Navbar.Brand href="#">Student Grievance System</Navbar.Brand>
-
+//       <div className="NavBarModified">
+//       <Navbar fixed="sticky" bg="dark" expand="xxl" variant="dark">
+//         <Navbar.Brand href="#">Student Grievance System</Navbar.Brand>
+    <Navbar
+          fixed="sticky"
+          expand="xxl"
+          variant="dark"
+          className="color-nav"
+        >
+          <Navbar.Brand href="#" className="title">
+            Student Grievance System
+          </Navbar.Brand>
         <Nav.Link href="#" className="ml-auto">
           Home
         </Nav.Link>
