@@ -1,5 +1,5 @@
 import React from "react"
-import "./FileComplaint.css"
+import style from "./FileComplaint.css";
 import BroadCategory from "./BroadCategory.js"
 import SubCategory from "./SubCategory.js"
 import TypeOfComplaint from "./TypeOfComplaint.js"
@@ -62,11 +62,11 @@ class FileComplaint extends React.Component{
         <TypeOfComplaint data={typeOfComplaint} />
         <ComplaintArea />
         <Priority data={priority}/>
-        <button  type="Submit">File</button>
-      </form>
+        <button type="Submit">File Complaint</button>
+          </form>
       </div>
       <div className="FileComplaint2 Shadow">
-      <table style={{width:'100%'}}>
+      <table style={{width:'100%', color: "black"}}>
         <tr>
           <th>Committee Name</th>
           <th>Committee Description</th>
