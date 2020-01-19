@@ -11,6 +11,8 @@ class ComplaintArea extends React.Component{
       <textarea
        name="Subject"
        maxLength="86"/>
+      <br />
+        <br />
       <label>Complaint:</label>
       <textarea name="Complaint"
        id="Complaint"maxLength="500" />
