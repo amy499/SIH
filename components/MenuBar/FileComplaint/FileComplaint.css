@@ -3,14 +3,14 @@
   margin-bottom: 20px;
   margin-left: 20px;
   margin-top: 20px;
-  border:2px black solid;
+  border: 3px solid #00539cff;
   margin-right: 40px;
   height: 75%;
   padding: 10px;
   width: 69%;
   color: white;
-  background-color: #322C42;
-  float:left;
+  background-color: #fff;
+  float: left;
 }
 
 .FileComplaint2 {
@@ -18,14 +18,14 @@
   margin-bottom: 20px;
   margin-left: 15px;
   margin-top: 20px;
-  border:2px black solid;
+  border: 3px solid #00539cff;
   margin-right: 0px;
   height: 75%;
   padding: 10px;
   width: 25%;
   color: white;
-  background-color: #322C42;
-  float:left;
+  background-color: #fff;
+  float: left;
 }
 
 div.Shadow {
@@ -34,7 +34,7 @@ div.Shadow {
 }
 
 .FileComplaint button{
-  margin-top: 20px;
+/*   margin-top: 20px;
   height: 35px;
   font-size: 20px;
   border: none;
@@ -43,7 +43,18 @@ div.Shadow {
   color: whitesmoke;
   display: inline;
   width:50%;
-  margin-left: 25%;
+  margin-left: 25%; */
+  margin-top: 20px;
+  height: 35px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  width: 40%;
+  margin-left: 30%;
+  color: white;
+  text-align: center;
+  background-color: #00539cff;
 }
 
 .ComplaintSpacing {
