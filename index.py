@@ -4,7 +4,7 @@ from dataBase import Complaint,Student
 import json
 
 app = Flask(__name__)
-CORS(app,resoruces={r"/*":{"origins":"htpp:localhost:3000"}})
+CORS(app,resoruces={r"/*":{"origins":"htpp:localhost:3001"}})
 app.config['SECRET_KEY']='c8f198ab0ecb824b62b369e27357d343'
 
 """
@@ -101,7 +101,7 @@ def complaint():
         """Inserting into database"""
         complaint = Complaint()
         complaint.insertComplaint(data=data)
-        return redirect("http://localhost:3000")
+        return redirect("http://localhost:3001")
 @app.route("/complaint/Filed",methods=["GET"])
 def complaintFiled():
 
@@ -126,7 +126,7 @@ def editComplaint():
         data = (request.get_json())
         complaint =Complaint()
         complaint.updateComplaint(objectId=data['_id']['$oid'])
-        return redirect("http://localhost:3000")
+        return redirect("http://localhost:3001")
 @app.route("/complaint",methods=["DELETE"])
 def deleteComplaint():
     return "Delete your Complaints here"
