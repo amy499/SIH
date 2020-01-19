@@ -2,12 +2,12 @@ import React from "react"
 import "./App.css"
 import FileComplaint from "./FileComplaint/FileComplaint.js"
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js"
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import PublicGrievance from "./PublicGrievance/App.js"
 
 let styles={
-  backgroundColor: '#a8e3ff',
-  color: '#1a1a1a',
+ backgroundColor: " #00539cff",
+  color: "#fff"
 }
 class Menu extends React.Component{
   constructor(props){
@@ -43,20 +43,20 @@ class Menu extends React.Component{
 
     if(this.props.user.type=='student'){
   return(
-    <div class="Appbackground">
+    <div>
     <div>
     <div onClick={this.handleChange} className="MenuBar">
     <button
     style={styles}
     id="Filed">Filed</button>
     <button style={styles}
-    id="Opened">Opened</button>
+    id="Opened"  className="buttonstyle">Opened</button>
     <button style={styles}
-    id="Closed">Closed</button>
+    id="Closed"  className="buttonstyle">Closed</button>
     <button style={styles}
-     id="FileComplaint" onClick={this.handleClick}>FileComplaint</button>
+     id="FileComplaint" onClick={this.handleClick}  className="buttonstyle">File Complaint</button>
     <button style={styles}
-    id="Public">Public</button>
+    id="Public"  className="buttonstyle">Public</button>
     </div>
     <div>
     {this.state.Filed && <MainComponentStudent type="Filed"/>}
@@ -74,18 +74,18 @@ class Menu extends React.Component{
     </div>
   )}
   else{
-    return <div><div class="Appbackground">
+    return <div><div >
     <div>
     <div onClick={this.handleChange} className="MenuBar">
     <button
     style={styles}
-    id="Filed">Filed</button>
+    id="Filed"  className="buttonstyle">Filed</button>
     <button style={styles}
-    id="Opened">Opened</button>
+    id="Opened"  className="buttonstyle">Opened</button>
     <button style={styles}
-    id="Closed">Closed</button>
+    id="Closed"  className="buttonstyle">Closed</button>
     <button style={styles}
-    id="Public">Public</button>
+    id="Public"  className="buttonstyle">Public</button>
     </div>
     <div>
     {this.state.Filed && <MainComponentStudent type="Filed"/>}
