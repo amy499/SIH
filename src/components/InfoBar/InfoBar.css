@@ -1,0 +1,19 @@
+.infobar {
+  display: flex;
+  position: "relative";
+  width: "100%";
+  height: 90px;
+  background-color: "white";
+  color: "#1a1a1a";
+  font-family: "Roboto";
+  text-align: center;
+  justify-content: center;
+}
+
+.bartitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-family: "Roboto";
+}

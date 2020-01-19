@@ -1,0 +1,14 @@
+.card {
+  border-left: 5px solid; /*Is also coming onto the container?*/
+}
+.float-right {
+  margin-right: 5px;
+}
+
+.card-link {
+  color: black;
+  padding-right: 7px;
+}
+.card-title {
+  padding-top: 7px;
+}
