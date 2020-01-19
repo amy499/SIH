@@ -1,0 +1,13 @@
+.color-nav {
+  background-color: #00539cff;
+}
+
+.title {
+  font-family: "Roboto";
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: white;
+}
