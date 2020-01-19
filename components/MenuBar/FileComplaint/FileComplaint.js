@@ -62,11 +62,11 @@ class FileComplaint extends React.Component{
         <TypeOfComplaint data={typeOfComplaint} />
         <ComplaintArea />
         <Priority data={priority}/>
-        <button  type="Submit">File</button>
+        <button  type="Submit">File Complain</button>
       </form>
       </div>
       <div className="FileComplaint2 Shadow">
-      <table style={{width:'100%'}}>
+      <table style={{width:'100%', color: "black"}}>
         <tr>
           <th>Committee Name</th>
           <th>Committee Description</th>
