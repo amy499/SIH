@@ -18,7 +18,6 @@ class MainComponentStudent extends React.Component {
       isComment: false, //To show comment input
       selectedComponent: {},
       someArray: {},
-      isComment: false
     };
     this.handleModal = this.handleModal.bind(this);
     this.handleComment = this.handleComment.bind(this);
@@ -29,13 +28,7 @@ class MainComponentStudent extends React.Component {
 
     this.setState({ show: true, selectedComponent: component });
   };
-  handleComment() {
-    this.setState(prevState => {
-      return {
-        isComment: !prevState.isComment
-      };
-    });
-  }
+
   componentDidMount() {
     let someArray;
     //Lifecycle to fetch data from the data base
