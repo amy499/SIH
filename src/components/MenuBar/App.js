@@ -2,12 +2,14 @@ import React from "react";
 import "./App.css";
 import FileComplaint from "./FileComplaint/FileComplaint.js";
 import MainComponentStudent from "./MainComponentStudent/MainComponentStudent.js";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import PublicGrievance from "./PublicGrievance/App.js";
 
 let styles = {
-  backgroundColor: "#a8e3ff",
-  color: "#1a1a1a"
+//   backgroundColor: "#a8e3ff",
+//   color: "#1a1a1a"
+   backgroundColor: " #00539cff",
+  color: "#fff"
 };
 class Menu extends React.Component {
   constructor(props) {
@@ -41,26 +43,26 @@ class Menu extends React.Component {
   render() {
     if (this.props.user.type == "student") {
       return (
-        <div class="Appbackground">
+        <div >
           <div>
             <div onClick={this.handleChange} className="MenuBar">
-              <button style={styles} id="Filed">
+              <button style={styles} id="Filed" className="buttonstyle">
                 Filed
               </button>
-              <button style={styles} id="Opened">
+              <button style={styles} id="Opened" className="buttonstyle">
                 Opened
               </button>
-              <button style={styles} id="Closed">
+              <button style={styles} id="Closed" className="buttonstyle">
                 Closed
               </button>
               <button
                 style={styles}
                 id="FileComplaint"
                 onClick={this.handleClick}
-              >
-                FileComplaint
+              className="buttonstyle">
+                File Complaint
               </button>
-              <button style={styles} id="Public">
+              <button style={styles} id="Public" className="buttonstyle">
                 Public
               </button>
             </div>
@@ -86,16 +88,16 @@ class Menu extends React.Component {
         <div class="Appbackground">
           <div>
             <div onClick={this.handleChange} className="MenuBar">
-              <button style={styles} id="Filed">
+              <button style={styles} id="Filed" className="buttonstyle">
                 Filed
               </button>
-              <button style={styles} id="Opened">
+              <button style={styles} id="Opened" className="buttonstyle">
                 Opened
               </button>
-              <button style={styles} id="Closed">
+              <button style={styles} id="Closed" className="buttonstyle">
                 Closed
               </button>
-              <button style={styles} id="Public">
+              <button style={styles} id="Public" className="buttonstyle">
                 Public
               </button>
             </div>
