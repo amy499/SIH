@@ -5,15 +5,23 @@
 }
 
 .ComplaintArea label{
-  display: block;
+/*   display: block;
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 24px; */
+  display: block;
+  margin-left: 5px;
+  font-size: 20px;
+  color: #000;
 }
 
 .ComplaintArea textarea{
-  width:99%;
+/*   width:99%;
   height:50px;
+  font-size: 18px; */
+  width: 99%;
+  height: 50px;
   font-size: 18px;
+  border: 1px solid #00539cff;
 }
 #Complaint{
   width:99%;
