@@ -50,7 +50,7 @@ class MainComponentStudent extends React.Component {
               key={component.id}
               onClick={() => this.handleModal(component)} //Show only gets true here
             >
-              <ListComponentStudent
+              <ListComponentStudent type={}
                 component={component}
               ></ListComponentStudent>
             </ListGroup.Item>

@@ -7,13 +7,15 @@ import ComplaintArea from "./ComplaintArea.js"
 import Priority from "./Priority.js"
 let broadCategory = [
   {id:1,title:'University'},
-  {id:2,title:'College'},
-  {id:3,title:'Institue'}
+  {id:2,title:'Institute'},
+  {id:3,title:'Department'},
 ]
 let subCategory = [
   {id:1,title:'Examination'},
   {id:2,title:'Education'},
-  {id:3,title:'Infrastructure'}
+  {id:3,title:'Infrastructure'},
+  {id:4,title:'Ladies Grievance Cell'},
+  {id:5,title:'Miscellaneous'}
 ]
 let priority = [
   {

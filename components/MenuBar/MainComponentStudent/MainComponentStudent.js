@@ -56,7 +56,7 @@ class MainComponentStudent extends React.Component {
               onClick={() => this.handleModal(component)} //Show only gets true here
             >
               <ListComponentStudent
-                component={component}
+                component={component} type={this.props.user}
               ></ListComponentStudent>
             </ListGroup.Item>
           ))}

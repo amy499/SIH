@@ -9,6 +9,9 @@ import { Card } from "react-bootstrap";
 //Each component is a card
 
 class ListComponentStudent extends React.Component {
+  constructor(props){
+    super(props)
+  }
   getStyles(component) {
     if (component.priority == 1 ) {
       return { backgroundColor: "#FFBABA", borderLeft: "5px solid #CD2828" };
@@ -22,30 +25,56 @@ class ListComponentStudent extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        {(
-          <Card
-            className="ml-lg "
-            className="card"
-            style={this.getStyles(this.props.component)}
-          >
-            <Card.Title className="ml-3 ml-lg ml-md ml-sm">
-              Subject: {this.props.component.Subject}
-            </Card.Title>
+    if(this.props.type=='student'){return (
+        <div>
+          {(
+            <Card
+              className="ml-lg "
+              className="card"
+              style={this.getStyles(this.props.component)}
+            >
+              <Card.Title className="ml-3 ml-lg ml-md ml-sm">
+                Subject: {this.props.component.Subject}
+              </Card.Title>
 
-            <Card.Body>
-              <Card.Link href="#" className=" float-right">
-                Edit
-              </Card.Link>
-              <Card.Link href="#" className=" float-right">
-                Delete
-              </Card.Link>
-            </Card.Body>
-          </Card>
-        )}
-      </div>
-    );
+              <Card.Body>
+                <Card.Link href="#" className=" float-right">
+                  Edit
+                </Card.Link>
+                <Card.Link href="#" className=" float-right">
+                  Delete
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          )}
+        </div>
+      )}
+    else{
+      return(  <div>
+          {(
+            <Card
+              className="ml-lg "
+              className="card"
+              style={this.getStyles(this.props.component)}
+            >
+              <Card.Title className="ml-3 ml-lg ml-md ml-sm">
+                Subject: {this.props.component.Subject}
+              </Card.Title>
+
+              <Card.Body>
+                <Card.Link href="#" className=" float-right">
+                  Forward
+                </Card.Link>
+                <Card.Link href="#" className=" float-right">
+                  Close
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          )}
+        </div>)
+
+    }
+
   }
 }
 
