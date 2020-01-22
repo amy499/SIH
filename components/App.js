@@ -5,9 +5,7 @@ import InfoBar from "./InfoBar/App.js"
 import Menu from "./MenuBar/App.js"
 import Footer from "./Footer/App.js"
 
-let user = {
-  type: 'student'
-}
+
 class App extends React.Component{
   constructor(props){
     super(props)

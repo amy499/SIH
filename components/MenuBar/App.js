@@ -117,6 +117,7 @@ class Menu extends React.Component{
     </div>
     </div>
   )}
+  
   else{
     return(
     <div>
@@ -132,14 +133,14 @@ class Menu extends React.Component{
     id="Public"  className="buttonstyle">Public</button>
     </div>
     <div>
-    {this.state.Filed.render && <MainComponentStudent type="Filed"/>}
+    {this.state.Filed.render && <MainComponentStudent user={this.props.user} type="Filed"/>}
     </div>
-    {this.state.FileComplaint.render && <FileComplaint user={this.props.user}/>}
+    {this.state.FileComplaint.render && <FileComplaint type="Opened" user={this.props.user}/>}
 
-    {this.state.Opened.render && <MainComponentStudent type="Opened"/>}
+    {this.state.Opened.render && <MainComponentStudent user={this.props.user} type="Opened"/>}
 
 
-          {this.state.Closed.render && <MainComponentStudent user={this.props.user.type} />}
+          {this.state.Closed.render && <MainComponentStudent user={this.props.user.type} type={'Closed'} />}
 
 
     {this.state.Public.render && <PublicGrievance />}
