@@ -1,3 +1,0 @@
-Add all the static files in their respectives directories
-Example: any css goes into a css folder, javascript into the js folder if there is not folder than create one.
-All the static files and their respective routes should be matched properly.
