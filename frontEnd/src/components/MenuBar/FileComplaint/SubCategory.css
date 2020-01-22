@@ -1,0 +1,12 @@
+.SubCategory {
+  margin-top: 20px;
+  width: 70%;
+  height: 30px;
+  border: 1px solid #00539cff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-left: 20px;
+}
