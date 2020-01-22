@@ -81,7 +81,7 @@ class Menu extends React.Component{
     };
     this.setState(this.baseState)
     this.setState({[id]:x})
-    console.log()
+    console.log(this.props.user)
   }
   render(){
 

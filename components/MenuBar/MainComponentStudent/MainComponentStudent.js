@@ -30,12 +30,10 @@ class MainComponentStudent extends React.Component {
     const data = await response.json();
     this.state.data = data;
     this.setState({loading:false})
-    console.log(this.state.data)
-  }
+    }
   handleModal = component => {
-
-
-    if (component.status == 'Filed' && this.props.user!='student'){
+    console.log(this.props)
+    if (component.status == 'Filed' && this.props.user.type != 'student'){
           this.setState({ show: true, selectedComponent: component,status:'Opened' });
       let url ="http://localhost:5000/complaint/edit";
       const response = fetch(url,{
