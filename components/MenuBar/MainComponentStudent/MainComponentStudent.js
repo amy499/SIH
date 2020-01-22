@@ -33,16 +33,21 @@ class MainComponentStudent extends React.Component {
     console.log(this.state.data)
   }
   handleModal = component => {
-    this.setState({ show: true, selectedComponent: component,status:'Opened' });
-    let url ="http://localhost:5000/complaint/edit";
-    if (component.status == 'Filed' && this.props.user!='student'){  const response = fetch(url,{
+
+
+    if (component.status == 'Filed' && this.props.user!='student'){
+          this.setState({ show: true, selectedComponent: component,status:'Opened' });
+      let url ="http://localhost:5000/complaint/edit";
+      const response = fetch(url,{
         method:'POST',
         mode:'cors',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify(component)
       })
     }
-
+    else{
+          this.setState({ show: true, selectedComponent: component });
+    }
   };
 
   render() {

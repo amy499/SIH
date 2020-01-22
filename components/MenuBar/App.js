@@ -9,36 +9,80 @@ let styles={
  backgroundColor: " #00539cff",
   color: "#fff"
 }
+let clickedStyle :{
+    backgroundColor: '#fff',
+    color: "black",
+    delay:'10s'
+}
+
 class Menu extends React.Component{
   constructor(props){
     super(props)
     this.state={
-          Filed: true,
-          FileComplaint : false,
-          Closed:false,
-          Public:false,
-          Opened: false,
-          loading: true,
-
+          Filed: {
+            render: true,
+            style: clickedStyle
+          },
+          FileComplaint : {
+            render:false,
+            style: styles
+          },
+          Closed:{
+            render:false,
+            style: styles
+          },
+          Public:{
+            render:false,
+            style:styles
+          },
+          Opened: {
+            render:false,
+            style: styles
+          },
+          loading:{
+            render: false,
+            style: styles
+          }
     }
     this.baseState = {
-      Filed: false,
-      FileComplaint : false,
-      Closed:false,
-      Public:false,
-      Opened: false
+      Filed: {
+        render: false,
+        style: styles
+      },
+      FileComplaint : {
+        render:false,
+        style: styles
+      },
+      Closed:{
+        render:false,
+        style: styles
+      },
+      Public:{
+        render:false,
+        style:styles
+      },
+      Opened: {
+        render:false,
+        style: styles
+      },
+      loading:{
+        render: false,
+        style: styles
+      }
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event){
     let id = (event.target.id)
-   this.setState(this.baseState)
-    this.setState({
-      [id] : true
-    })
+    let x = {
+      render: true,
+      style: clickedStyle
+    };
+    this.setState(this.baseState)
+    this.setState({[id]:x})
+    console.log()
   }
-
   render(){
 
     if(this.props.user.type=='student'){
@@ -47,34 +91,34 @@ class Menu extends React.Component{
     <div>
     <div onClick={this.handleChange} className="MenuBar">
     <button
-    style={styles}
+    style={this.state.Filed.style}
     id="Filed">Filed</button>
-    <button style={styles}
+    <button style={this.state.Opened.style} onClick={this.ChangeColor}
     id="Opened"  className="buttonstyle">Opened</button>
-    <button style={styles}
+    <button style={this.state.Closed.style}
     id="Closed"  className="buttonstyle">Closed</button>
-    <button style={styles}
+    <button style={this.state.FileComplaint.style}
      id="FileComplaint" onClick={this.handleClick}  className="buttonstyle">File Complaint</button>
-    <button style={styles}
+    <button style={this.state.Public.style}
     id="Public"  className="buttonstyle">Public</button>
     </div>
     <div>
-    {this.state.Filed && <MainComponentStudent type="Filed"/>}
+    {this.state.Filed.render && <MainComponentStudent user={this.props.user} type="Filed"/>}
     </div>
-    {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
+    {this.state.FileComplaint.render && <FileComplaint user={this.props.user}/>}
 
-    {this.state.Opened && <MainComponentStudent type="Opened"/>}
-
-
-          {this.state.Closed && <MainComponentStudent filed={true} closed={true} opened ={true} />}
+    {this.state.Opened.render && <MainComponentStudent user={this.props.user} type="Opened"/>}
 
 
-    {this.state.Public && <PublicGrievance />}
+          {this.state.Closed.render && <MainComponentStudent user={this.props.user}type="Closed" />}
+
+
+    {this.state.Public.render && <PublicGrievance user={this.props.user}/>}
     </div>
     </div>
   )}
   else{
-    return <div><div >
+    return(
     <div>
     <div onClick={this.handleChange} className="MenuBar">
     <button
@@ -88,19 +132,19 @@ class Menu extends React.Component{
     id="Public"  className="buttonstyle">Public</button>
     </div>
     <div>
-    {this.state.Filed && <MainComponentStudent type="Filed"/>}
+    {this.state.Filed.render && <MainComponentStudent type="Filed"/>}
     </div>
-    {this.state.FileComplaint && <FileComplaint user={this.props.user}/>}
+    {this.state.FileComplaint.render && <FileComplaint user={this.props.user}/>}
 
-    {this.state.Opened && <MainComponentStudent type="Opened"/>}
-
-
-          {this.state.Closed && <MainComponentStudent user={this.props.user.type} />}
+    {this.state.Opened.render && <MainComponentStudent type="Opened"/>}
 
 
-    {this.state.Public && <PublicGrievance />}
+          {this.state.Closed.render && <MainComponentStudent user={this.props.user.type} />}
+
+
+    {this.state.Public.render && <PublicGrievance />}
     </div>
-    </div></div>
+    )
   }
 }
 }
