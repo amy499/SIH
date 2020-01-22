@@ -7,7 +7,7 @@
 /__pycache__
 # testing
 /coverage
-
+/Database/database/
 # production
 /build
 
