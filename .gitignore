@@ -5,11 +5,10 @@
 /.pnp
 .pnp.js
 /__pycache__
+/DataBase
 # testing
 /coverage
-/Database/database/
-# production
-/build
+
 
 # misc
 .DS_Store
