@@ -11,6 +11,8 @@ import { Card } from "react-bootstrap";
 class ListComponentStudent extends React.Component {
   constructor(props){
     super(props)
+    this.state = this.props.component
+    this.handleClosing = this.handleClosing.bind(this);
   }
   getStyles(component) {
     if (component.priority == 1 ) {
@@ -23,7 +25,18 @@ class ListComponentStudent extends React.Component {
       return { backgroundColor: "#D2ECFF", borderLeft: "5px solid #8ACAF9" };
     }
   }
-
+handleClosing(event){
+  let component = this.props.component
+  component.status= 'CLI'
+  console.log(component)
+  let url = "http://localhost:5000/complaint/edit"
+  fetch(url,{
+    method : 'POST',
+    mode : 'cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(component)
+  }  )
+}
   render() {
     if(this.props.type=='student'){return (
         <div>
@@ -66,7 +79,7 @@ class ListComponentStudent extends React.Component {
                   Forward
                 </Card.Link>
                 <Card.Link href="#" className=" float-right">
-                  Close
+                  <button id="Close" onClick={this.handleClosing}> Close </button>
                 </Card.Link>
               </Card.Body>
             </Card>

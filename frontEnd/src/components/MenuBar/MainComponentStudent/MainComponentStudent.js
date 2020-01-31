@@ -2,8 +2,6 @@ import React from "react";
 //Child Component and Parent to ListComponent
 import "./MainComponentStudent.css";
 import ListComponentStudent from "./ListComponentStudent/ListComponentStudent";
-import ListComponentArrayStudent from "./ListComponentStudent/ListComponentArrayStudent"
-
 import { ListGroup, Modal, Button, Container } from "react-bootstrap";
 import { Thumbnail } from "react-bootstrap";
 
@@ -31,9 +29,10 @@ class MainComponentStudent extends React.Component {
     this.state.data = data;
     this.setState({loading:false})
     }
+
   handleModal = component => {
-    console.log(this.props)
-    if (component.status == 'Filed' && this.props.user.type != 'student'){
+    console.log(component)
+    if (component.status === 'Filed' && this.props.user.type != 'student'){
           this.setState({ show: true, selectedComponent: component,status:'Opened' });
       let url ="http://localhost:5000/complaint/edit";
       const response = fetch(url,{
@@ -83,7 +82,6 @@ class MainComponentStudent extends React.Component {
               Subject : {this.state.selectedComponent.Subject}
             </Modal.Title>
           </Modal.Header>
-
           <Modal.Body>{this.state.selectedComponent.Complaint}</Modal.Body>
           <Modal.Footer>
             <Button className="button">Comment</Button>

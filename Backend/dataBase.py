@@ -24,15 +24,15 @@ class Complaint:
         })
     def updateComplaint(self,data):
         pass
-    def findComplaint(self,College,Committee,status):
+    def findComplaint(self,College,status):
         cur = self.complaints.find({'College':'VIIT','status':status}).sort("priority")
         jsonString = dumps(cur)
         return jsonString
     def deleteComplaint(self,objectId):
         pass
-    def updateComplaint(self,objectId):
+    def updateComplaint(self,objectId,objectStatus):
         data = self.complaints.update({'_id':ObjectId(objectId)},{'$set':{
-        'status':'Opened'
+        'status': objectStatus
         }})
         print(data)
         return "Success"

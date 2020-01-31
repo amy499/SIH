@@ -3,9 +3,7 @@ import React from 'react'
 import ReactDom from "react-dom"
 import App from "./components/App.js"
 import "bootstrap/dist/css/bootstrap.min.css";
-let user = {
-  type:'student'
-}
+import {Router,Route,Link,IndexRoute,hashHistory,browserHistory} from 'react-router'
 
 function Index(){
   return(
@@ -14,4 +12,6 @@ function Index(){
     </div>
   )
 }
+
+
 ReactDom.render(<Index />,document.getElementById("root"))
