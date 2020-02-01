@@ -11,7 +11,6 @@ let user = {
 function Main(){
   return(
     <div>
-    <Navigation />
     <InfoBar user={user}/>
     <Menu user={user}/>
     </div>
@@ -24,6 +23,12 @@ function Home(){
     </div>
   )
 }
+function Login(){
+  return(
+    <div>
+    Login First
+    </div>
+)}
 class App extends React.Component{
   constructor(props){
     super(props)
@@ -33,8 +38,12 @@ class App extends React.Component{
     render(){
     return(
       <Router>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/home" component={Main} />
+      <Navigation />
+        <Switch>
+          <Route exact path='/complaint' component={Main} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+        </Switch>
       </Router>
     )
   }

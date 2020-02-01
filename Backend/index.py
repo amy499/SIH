@@ -1,16 +1,23 @@
 from flask import Flask,sessions,request,render_template,url_for,redirect
 from flask_cors import CORS
-from dataBase import Complaint,Student
+from dataBase import Complaint
 import json
 
 app = Flask(__name__)
 CORS(app,resoruces={r"/*":{"origins":"htpp:localhost:3000"}})
 app.config['SECRET_KEY']='c8f198ab0ecb824b62b369e27357d343'
-@app.route("/complaint/config",methods=[|"GET","POST"])
+@app.route("/complaint/configure",methods=["GET","POST"])
 def configuration():
     if request.method == "GET":
-        return "xyz"
-    else:
+        complaint =  Complaint()
+        data = complaint.configure(collegeName='VIIT')
+        if data is None:
+            return "NO prior configuration found"
+        return data
+    elif request.method == "POST":
+        conf = request.values
+        complaint = Complaint()
+        complaint.editConfigure(conf=None)
         return "Storing Configuration"
 @app.route("/complaint",methods=["GET","POST"])
 def complaint():

@@ -9,6 +9,24 @@ dataBase = client.smartIndiaHackathon
 class Complaint:
     def __init__(self):
         self.complaints = dataBase.complaint
+        self.configuration = dataBase.configuration
+    def configure(self,collegeName):
+        cur = self.configuration.find({'collegeName':'VIIT'})
+        cur = dumps(cur)
+        return cur
+    def editConfigure(self,conf,collegeName="XYZ"):
+        if conf is None:
+            self.configuration.insert_one({
+            'collegeName':'VIIT',
+            'subCategory':['Ladies Grievance Cell','Miscellaneos Cell'],
+            'broadCategory':['University','College','Department']
+        })
+        else:
+            self.configure.insert_one({
+            'collegeName':conf['collegeName'],
+            'subCategory':conf['subCategory'],
+            'broadCategory':conf['broadCategory']
+            })
     def insertComplaint(self,data):
         self.complaints.insert_one({
         "user":'Rahul',
@@ -36,47 +54,3 @@ class Complaint:
         }})
         print(data)
         return "Success"
-
-class Student:
-    def __init__(self):
-        self.collection = dataBase.student
-    def insertStudent(self,data):
-        self.collection.insert_one({
-        'name':data['studentName'],
-        'college':data['collegeName'],
-        'university':data['universityName'],
-        'email':data['studentEmail'],
-        'password': data['pwd'],
-        'department': data['Department'],
-		'GR no':data['grNo']
-        })
-
-    def findStudent(self,studentId="Rahul",studentEmail="rahul.17u652@viit.ac.in"):
-        result = self.collection.find({'email':studentEmail})
-        if result is None:
-            return "ERROR"
-        else:
-            return dumps(result)
-    def findOne(self,email):
-        data = self.collection.findOne({'email':email})
-        return data
-    def find(self,college):
-        cur = self.collection.find({'college':college})
-        return dumps(cur)
-
-class Committee:
-    def __init__(self):
-        self.collection=dataBase.administration
-    def insertCommitteeMember(self,data):
-        self.collection.insert_one({
-        'universityName':data.university,
-        'collegeName':data.college,
-        'email': data.email,
-        'committeeName': data.committeeName,
-        })
-        return "success"
-    def findOne(self,email):
-        result = self.collection.find({'email':email})
-        return result;
-    def find(self,collegeName):
-        result = self.collection.find({})
